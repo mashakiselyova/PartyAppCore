@@ -1,0 +1,20 @@
+﻿@model PartyAppCore.ViewModels.NearestPartyViewModel
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Вечеринки:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var party in Model.NearestParties)
+        {
+            <tr>
+                <td>@Html.ActionLink(party.Name, "ShowParty", "Party", new { id = party.Id }, null)</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+

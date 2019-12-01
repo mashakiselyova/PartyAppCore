@@ -1,0 +1,17 @@
+﻿@model PartyAppCore.Models.Party
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+<p>Дата: @Model.Date</p>
+<p>Место: @Model.Location</p>
+<p>Список участников</p>
+<ol>
+    @foreach (var participant in Model.Participants)
+    {
+        <li>@participant.Name</li>
+    }
+</ol>
+

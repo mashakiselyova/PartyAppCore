@@ -1,0 +1,29 @@
+﻿@using PartyAppCore.Models
+@model List<Party>
+
+@{
+    ViewBag.Title = "Голосование";
+}
+
+<form enctype="multipart/form-data" asp-controller="Party" asp-action="Vote" method="post">
+    Имя:
+    <input type="text" name="name"><br />
+
+    Выберите вечеринку:
+    <select name="partyId">
+        @foreach (var party in Model)
+        {
+            <option value="@party.Id">@party.Name</option>
+        }
+    </select><br />
+
+    Иду:
+    <input type="checkbox" name="attend"><br />
+
+    Аватар:
+    <input type="file" name="avatar"><br /><br />
+
+    <input type="submit" value="Голосовать">
+</form>
+
+

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        #container {
+            width: 800px;
+            margin: auto;
+        }
+
+        #main {
+            float: left;
+        }
+
+        #parties {
+            float: right;
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="main">
+            @RenderBody()
+            <br /><br /><br />
+            @Html.ActionLink("Главная страница", "Index", "Home")
+        </div>
+        <div id="parties">
+            @await Component.InvokeAsync("NearestParties")
+            <br />
+            @await Component.InvokeAsync("LastViewedParties")
+        </div>
+    </div>
+</body>
+</html>
